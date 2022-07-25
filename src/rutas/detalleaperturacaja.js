@@ -6,13 +6,11 @@ const router = require("express").Router()
 //c
 router.post("/",
   body("idregistro").isInt(),
-  body("caja").isInt().default(1),
-  body("estacion").isInt().default(1),
-  body("cierre").isInt().default(1),
+  body("idapertura").isInt(),
+  body("iddenominacion").isInt(),
+  body("cantidad").isInt().default(1),
   body("monto").isFloat().default(1),
-  body("fechahora").isDate().default(Date.now()),
-  body("fechaapertura").isDate().default(Date.now()),
-  body("estaciones_NumeroEstacion").isInt().default(1),
+  body("aperturacaja_idregistro").isFloat().default(1),
   validator,
   post
 )

@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const models = require("../models");
 //c
 exports.post = async (req, res) => {
@@ -20,9 +21,16 @@ exports.getPorId = async (req, res) => {
     res.status(500).json({ err: err.message });
   }
 };
-exports.get = async (_req, res) => {
+exports.get = async (req, res) => {
   try {
-    const data = await models.monedas.findAll();
+    const { nombre } = req.query
+    const data = await models.monedas.findAll(nombre ? {
+      where: {
+        nombre: {
+          [Op.like]: nombre
+        }
+      }
+    } : {});
     res.json({
       data,
     });

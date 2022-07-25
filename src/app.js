@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const cors = require('cors')
 app.set('port', 3000 || process.env.PORT);
 
 // middlewares
@@ -10,6 +10,7 @@ if (process.env.NODE_ENV != "production") {
     const morgan = require('morgan');
     app.use(morgan('dev'));
 }
+app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
