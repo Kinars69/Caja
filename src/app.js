@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-app.set('port', process.env.PORT || 3000 );
+const port = process.env.PORT || 3000
 
 // middlewares
 // esta condicion es para ejecutar estos middlewares solo en desarrollo en produccion no son necesarios
@@ -20,6 +20,6 @@ app.use('/api/detallecierrecaja', require('./rutas/detallecierrecajas'));
 app.use('/api/monedas', require('./rutas/monedas'));
 app.use('/api/detalleaperturacaja', require('./rutas/detalleaperturacaja'));
  
-app.listen(app.get('port'), () => {
-    console.log("Servidor iniciado en el puerto " + app.get('port'));
+app.listen(port,get('port'), () => {
+    console.log("Servidor iniciado en el puerto " + port);
 });
