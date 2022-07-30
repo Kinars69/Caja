@@ -14,17 +14,26 @@ exports.getPorId = async (req, res) => {
   const idregistro = req.params.id
   try {
     const data = await models.detallecierrecajapos.findByPk(
-        idregistro
+      idregistro
     )
     res.json({ data })
   } catch (err) {
     res.status(500).json({ err: err.message })
   }
 }
-exports.get = async (_req, res) => {
+exports.get = async (req, res) => {
+  const cierrecaja_idregistro = parseInt(req.query.cierrecaja_idregistro)
   try {
-    const data = await models.detallecierrecajapos.findAll()
-    res.json({ data,})
+    const data = await models.detallecierrecajapos.findAll(
+      cierrecaja_idregistro
+        ? {
+          where: {
+            cierrecaja_idregistro
+          }
+        }
+        : {}
+    )
+    res.json({ data, })
   } catch (err) {
     res.status(500).json({ err: err.message })
   }
@@ -34,7 +43,7 @@ exports.get = async (_req, res) => {
 exports.put = async (req, res) => {
   const idregistro = req.params.id
   try {
-    const data = await models.detallecierrecajapos.update(req.body,{
+    const data = await models.detallecierrecajapos.update(req.body, {
       where: {
         idregistro
       }
@@ -50,7 +59,7 @@ exports.del = async (req, res) => {
   const idregistro = req.params.id
   try {
     const data = await models.detallecierrecajapos.destroy({
-      where:{
+      where: {
         idregistro
       }
     })

@@ -5,6 +5,7 @@ exports.post = async (req, res) => {
     const data = await models.detalle_aperturacaja.create(req.body);
     res.json({ data });
   } catch (err) {
+    console.log(err)
     res.status(500).json({ err: err.message });
   }
 };
@@ -18,9 +19,18 @@ exports.getPorId = async (req, res) => {
     res.status(500).json({ err: err.message });
   }
 };
-exports.get = async (_req, res) => {
+exports.get = async (req, res) => {
+  const aperturacaja_idregistro = parseInt(req.query.aperturacaja_idregistro)
+
   try {
-    const data = await models.detalle_aperturacaja.findAll();
+    const data = await models.detalle_aperturacaja.findAll(
+      aperturacaja_idregistro
+        ? {
+          where: {
+            aperturacaja_idregistro
+          }
+        }
+        : {});
     res.json({
       data,
     });
@@ -33,7 +43,7 @@ exports.get = async (_req, res) => {
 exports.put = async (req, res) => {
   const idregistro = req.params.id;
   try {
-    const data = await models.detalle_aperturacaja.update(req.body,{
+    const data = await models.detalle_aperturacaja.update(req.body, {
       where: {
         idregistro,
       },
