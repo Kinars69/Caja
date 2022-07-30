@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-app.set('port', 3000 || process.env.PORT);
+app.set('port', process.env.PORT || 3000 );
 
 // middlewares
 // esta condicion es para ejecutar estos middlewares solo en desarrollo en produccion no son necesarios
