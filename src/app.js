@@ -20,6 +20,6 @@ app.use('/api/detallecierrecaja', require('./rutas/detallecierrecajas'));
 app.use('/api/monedas', require('./rutas/monedas'));
 app.use('/api/detalleaperturacaja', require('./rutas/detalleaperturacaja'));
  
-app.listen(port,get('port'), () => {
+app.listen(port, () => {
     console.log("Servidor iniciado en el puerto " + port);
 });
