@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATEONLY,
       allowNull: true
     }
-  }, {
+  }, /*{
     sequelize,
     tableName: 'aperturacaja',
     timestamps: false,
@@ -51,5 +51,5 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
     ]
-  });
+  }*/);
 };
