@@ -23,7 +23,7 @@ function initModels(sequelize) {
   cierrecaja.belongsTo(aperturacaja, { as: "aperturacaja_idregistro_aperturacaja", foreignKey: "aperturacaja_idregistro"});
   aperturacaja.hasMany(cierrecaja, { as: "cierrecajas", foreignKey: "aperturacaja_idregistro"});
   detalle_aperturacaja.belongsTo(aperturacaja, { as: "aperturacaja_idregistro_aperturacaja", foreignKey: "aperturacaja_idregistro"});
-  aperturacaja.hasMany(detalle_aperturacaja, { as: "detalle_aperturacajas", foreignKey: "aperturacaja_idregistro"});
+  aperturacaja.hasMany(detalle_aperturacaja, { as: "detalle_aperturacaja", foreignKey: "aperturacaja_idregistro"});
   cajas.belongsTo(cierrecaja, { as: "cierrecaja_idregistro_cierrecaja", foreignKey: "cierrecaja_idregistro"});
   cierrecaja.hasMany(cajas, { as: "cajas", foreignKey: "cierrecaja_idregistro"});
   detallecierrecajapos.belongsTo(cierrecaja, { as: "cierrecaja_idregistro_cierrecaja", foreignKey: "cierrecaja_idregistro"});
@@ -33,7 +33,7 @@ function initModels(sequelize) {
   detalle_cierrecaja.belongsTo(detalle_aperturacaja, { as: "detalle_aperturacaja_idregistro_detalle_aperturacaja", foreignKey: "detalle_aperturacaja_idregistro"});
   detalle_aperturacaja.hasMany(detalle_cierrecaja, { as: "detalle_cierrecajas", foreignKey: "detalle_aperturacaja_idregistro"});
   aperturacaja.belongsTo(estaciones, { as: "estaciones_NumeroEstacion_estacione", foreignKey: "estaciones_NumeroEstacion"});
-  estaciones.hasMany(aperturacaja, { as: "aperturacajas", foreignKey: "estaciones_NumeroEstacion"});
+  estaciones.hasMany(aperturacaja, { as: "aperturacaja", foreignKey: "estaciones_NumeroEstacion"});
   denominacionmonedas.belongsTo(monedas, { as: "monedas_idregistro_moneda", foreignKey: "monedas_idregistro"});
   monedas.hasMany(denominacionmonedas, { as: "denominacionmonedas", foreignKey: "monedas_idregistro"});
 
