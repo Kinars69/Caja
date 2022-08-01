@@ -13,7 +13,7 @@ router.post("/",
   body("cierre").isInt(),
   body("monto").isFloat(),
   body("fechaapertura").isDate(),
-  body("estaciones_NumeroEstacion").isInt(),
+  //body("estaciones_NumeroEstacion").isInt(),
   validator,
   post
 )
@@ -36,7 +36,7 @@ router.put("/:id",
   body("cierre").isInt().optional({nullable:true}),
   body("monto").isFloat().optional({nullable:true}),
   body("fechaapertura").isDate().optional({nullable:true}),
-  body("estacion_NumeroEstacion").isInt().optional({nullable:true}),
+  //body("estacion_NumeroEstacion").isInt().optional({nullable:true}),
   validator,
   put
 )

@@ -29,14 +29,6 @@ module.exports = function(sequelize, DataTypes) {
     fechaapertura: {
       type: DataTypes.DATEONLY,
       allowNull: true
-    },
-    estaciones_NumeroEstacion: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'estaciones',
-        key: 'NumeroEstacion'
-      }
     }
   }, {
     sequelize,
